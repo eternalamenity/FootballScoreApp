@@ -1,12 +1,16 @@
 package com.example.FootballScoreApp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
-import com.google.android.gms.ads.MobileAds;
+import com.example.FootballScoreApp.data.FootballDataApiService
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,5 +28,11 @@ class MainActivity : AppCompatActivity() {
         mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+
+        val apiService = FootballDataApiService()
+        GlobalScope.launch (Dispatchers.Main){
+            val currentMatchDayResponse =  apiService.getCurrentPremiereLeagueMatches(37).await()
+            textView.text = currentMatchDayResponse.matches.toString()
+        }
     }
 }
