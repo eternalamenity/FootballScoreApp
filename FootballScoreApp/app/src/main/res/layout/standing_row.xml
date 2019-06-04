@@ -2,51 +2,46 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="20dp">
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:id="@+id/position"
             android:textStyle="bold"
             android:text="1"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" app:layout_constraintTop_toTopOf="parent"
-    />
+            tools:layout_editor_absoluteX="16dp" tools:layout_editor_absoluteY="1dp"/>
     <TextView
             android:layout_height="wrap_content"
             android:id="@+id/teamName"
             android:textStyle="bold"
             android:text="Manchester City"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="150dp"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/position"/>
+            tools:layout_editor_absoluteY="1dp" app:layout_constraintStart_toEndOf="@+id/position"
+            android:layout_marginStart="8dp" android:layout_width="120dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/playedGames"
             android:textStyle="bold"
             android:text="38"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@+id/teamName" app:layout_constraintEnd_toStartOf="@+id/goals"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.425"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/teamName" android:layout_marginStart="48dp"
+            tools:layout_editor_absoluteY="1dp"/>
     <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:id="@+id/goals"
             android:textStyle="bold"
             android:text="95:22"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/playedGames"
-            app:layout_constraintEnd_toStartOf="@+id/points" android:layout_marginEnd="8dp"/>
+            app:layout_constraintStart_toEndOf="@+id/playedGames" android:layout_marginStart="32dp"
+            tools:layout_editor_absoluteY="1dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/points"
             android:textStyle="bold"
             android:text="98"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/goals" android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toEndOf="@+id/goals" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" tools:layout_editor_absoluteY="1dp"
+            app:layout_constraintHorizontal_bias="0.571"/>
 
 </android.support.constraint.ConstraintLayout>

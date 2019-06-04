@@ -1,20 +1,17 @@
 package com.example.FootballScoreApp
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.standing_row.view.*
 
 class StandingsAdapter(
+    val listOfPositions: MutableList<String>,
     val listOfTeams: MutableList<String>,
     val listOfMatchesPlayed: MutableList<String>,
     val listOfGoals: MutableList<String>,
-    val listOfPoints: MutableList<String>,
-    val listOfPositions: MutableList<String>,
-    val context: Context
+    val listOfPoints: MutableList<String>
 ) : RecyclerView.Adapter<StandingsViewHolder>() {
 
     override fun getItemCount(): Int {
@@ -22,7 +19,7 @@ class StandingsAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StandingsViewHolder {
-        val layoutInflater = LayoutInflater.from(context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         val cellForRow = layoutInflater.inflate(R.layout.standing_row, parent, false)
         return StandingsViewHolder(cellForRow)
     }
@@ -33,13 +30,6 @@ class StandingsAdapter(
         val acualMatchesPlayed = listOfMatchesPlayed[position]
         val actualGoals = listOfGoals[position]
         val acutalPoints = listOfPoints[position]
-
-        Log.d("MyApp",actualPosition)
-        Log.d("MyApp",actualTeam)
-        Log.d("MyApp",acualMatchesPlayed)
-        Log.d("MyApp",actualGoals)
-        Log.d("MyApp",acutalPoints)
-
 
         holder?.view?.position?.text = actualPosition
         holder?.view?.teamName?.text = actualTeam

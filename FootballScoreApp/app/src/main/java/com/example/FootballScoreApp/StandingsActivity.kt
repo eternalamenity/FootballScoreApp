@@ -3,7 +3,6 @@ package com.example.FootballScoreApp
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import com.example.FootballScoreApp.data.FootballDataApiService
 import kotlinx.android.synthetic.main.activity_standings.*
 import kotlinx.coroutines.Dispatchers
@@ -33,15 +32,10 @@ class StandingsActivity : AppCompatActivity() {
                 listOfGoals.add(goalString)
                 listOfPoints.add(standing.points.toString())
             }
-            Log.d("MyApp",listOfPositions.toString())
-            Log.d("MyApp",listOfTeams.toString())
-            Log.d("MyApp",listOfGoals.toString())
-            Log.d("MyApp",listOfMatchesPlayed.toString())
-            Log.d("MyApp",listOfPoints.toString())
-
+            rViewStandings.adapter =
+                StandingsAdapter(listOfPositions, listOfTeams, listOfMatchesPlayed, listOfGoals, listOfPoints)
         }
         setContentView(R.layout.activity_standings)
         rViewStandings.layoutManager = LinearLayoutManager(this)
-        rViewStandings.adapter = StandingsAdapter(listOfPositions, listOfTeams, listOfMatchesPlayed, listOfGoals,listOfPoints, this)
     }
 }
