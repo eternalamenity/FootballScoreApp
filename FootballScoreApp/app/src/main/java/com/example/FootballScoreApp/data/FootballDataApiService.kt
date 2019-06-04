@@ -1,6 +1,7 @@
 package com.example.FootballScoreApp.data
 
 import com.example.FootballScoreApp.data.response.MatchDayResponse
+import com.example.FootballScoreApp.data.response.StandingsResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -13,6 +14,7 @@ import retrofit2.http.Query
 const val API_KEY = "b77d4c5dfecd4a8a92481294da26fecc"
 
 //https://api.football-data.org/v2/competitions/PL/matches?matchday=37
+//https://api.football-data.org/v2/competitions/PL/standings
 
 interface FootballDataApiService {
 
@@ -20,6 +22,9 @@ interface FootballDataApiService {
     fun getCurrentPremiereLeagueMatches(
         @Query("matchday") matchday: Int
     ): Deferred<MatchDayResponse>
+
+    @GET("competitions/PL/standings")
+    fun getPremiereLeagueTable() : Deferred<StandingsResponse>
 
     companion object {
         operator fun invoke(): FootballDataApiService {

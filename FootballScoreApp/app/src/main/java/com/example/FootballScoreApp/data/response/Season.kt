@@ -11,5 +11,7 @@ data class Season(
     @SerializedName("id")
     val id: Int,
     @SerializedName("startDate")
-    val startDate: String
+    val startDate: String,
+    @SerializedName("winner")
+    val winner: Any
 )
